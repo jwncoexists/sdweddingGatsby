@@ -2,18 +2,18 @@
   "title": "Home",
   "content": "intro.md",
   "gallery": [{
-    "title": "React Context",
-    "copy": "For global styles.",
-    "image": "../images/gallery/react-context.jpg"
+    "title": "72 ° Wedding Blog",
+    "copy": "San Diego Wedding blog for unique wedding ideas and style: 72 ° degrees",
+    "image": "../images/gallery/blog.jpeg"
   },
   {
-    "title": "Page Transitions",
-    "copy": "Component-based for easy usage.",
-    "image": "../images/gallery/page-transitions.jpg"
+    "title": "Wedding Venues",
+    "copy": "San Diego's top wedding reception venues",
+    "image": "../images/gallery/venues.jpeg"
   },
   {
-    "title": "Intersection Observer",
-    "copy": "Including a polyfill for Safari.",
-    "image": "../images/gallery/intersection-observer.jpg"
+    "title": "Wedding Vendors",
+    "copy": "San Diego top wedding vendors - florals, photographers, cakes & more.",
+    "image": "../images/gallery/florals-and-decor.jpeg"
   }]
 }

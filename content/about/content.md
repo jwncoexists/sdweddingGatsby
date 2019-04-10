@@ -1,21 +1,4 @@
-Find the repository [on GitHub](https://github.com/fabe/gatsby-universal).
 
-```
-# Installation
-gatsby new my-site https://github.com/fabe/gatsby-universal
+San Diego Wedding Venue and Directory - The Ultimate Website for Wedding Style and Services
 
-# To develop
-yarn develop
-
-# To build
-yarn build
-
-# To test SSR (for Lighthouse etc.)
-yarn ssr
-
-# To format JS (precommit)
-yarn format
-
-# To generate favicons (included in `build`)
-yarn build:favicons
-```
+"Love totally plan locally!"
