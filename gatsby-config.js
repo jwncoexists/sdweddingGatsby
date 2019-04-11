@@ -29,5 +29,12 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: "gatsby-source-pg",
+      options: {
+        connectionString: "postgres:///gatsby_example",
+        schema: "public",
+      },
+    },
   ],
 };
