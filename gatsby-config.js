@@ -32,7 +32,7 @@ module.exports = {
     {
       resolve: "gatsby-source-pg",
       options: {
-        connectionString: "postgres:///gatsby_example",
+        connectionString: "postgres:///wedding",
         schema: "public",
       },
     },
