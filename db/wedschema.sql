@@ -66,7 +66,7 @@ CREATE TABLE usertable (
 );
 
 CREATE TABLE userfavorite (
-  id SERIAL PRIMARY KEY,
+  id SERIAL UNIQUE,
   user_id INT REFERENCES usertable (id),
   item_id INT REFERENCES item (id),
   constraint userfavorite_id PRIMARY KEY (user_id, item_id)
