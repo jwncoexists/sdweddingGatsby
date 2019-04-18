@@ -1,15 +1,15 @@
-insert into thingschema (page_id, location_name, address1, info, keywords) values
-  (1, 'LocationA', '101 temp ave', 'placeholder for location A', '{"keyWord1", "keyWord2"}'),
-  (2, 'LocationB', '202 temp ave', 'placeholder for location B', '{"keyWord1", "keyWord2"}'),
-  (3, 'LocationC', '303 temp ave', 'placeholder for location C', '{"keyWord1", "keyWord2"}');
+insert into item (name, address1, info) values
+  ('LocationA', '101 temp ave', 'placeholder for location A'),
+  ('LocationB', '202 temp ave', 'placeholder for location B'),
+  ('LocationC', '303 temp ave', 'placeholder for location C');
 
 
-insert into userschema (user_id, name) values
-  (1, 'Michael'),
-  (2, 'Emily'),
-  (3, 'Greg');
+insert into usertable (name) values
+  ('Michael'),
+  ('Emily'),
+  ('Greg');
 
-insert into userfavorites (user_id, page_id) values
+insert into userfavorite (user_id, item_id) values
   (1, 1),
   (1, 2),
   (2, 1),

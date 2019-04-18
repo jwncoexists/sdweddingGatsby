@@ -1,8 +1,8 @@
 create extension citext;
 
-CREATE TABLE thingschema (
-  page_id INT PRIMARY KEY,
-  location_name TEXT,
+CREATE TABLE item (
+  id SERIAL PRIMARY KEY,
+  name TEXT,
   address1 TEXT,
   address2 TEXT,
   city TEXT,
@@ -14,50 +14,61 @@ CREATE TABLE thingschema (
   email TEXT,
   info TEXT, 
   info_html TEXT,
-  image TEXT,
-  keywords TEXT[], 
   active BOOL default 'true'
 );
 
+CREATE TABLE photo (
+  id SERIAL PRIMARY KEY,
+  name TEXT,
+  description TEXT,
+  path TEXT UNIQUE,
+  active BOOL default 'true',
+  main BOOL default 'false'
+);
 
-CREATE TABLE groups (
-  groups_id INT PRIMARY KEY,
+CREATE TABLE category (
+  id SERIAL PRIMARY KEY,
   state_name TEXT,
   menu_name TEXT,
   display_name TEXT,
-  image TEXT,
-  category_list TEXT[]  
+  group_photo INT REFERENCES photo(id)
 );  
 
-CREATE TABLE photoschema (
-  photo_id INT PRIMARY KEY,
-  name TEXT,
-  keywords TEXT[],
-  description TEXT,
-  path TEXT,
-  state_name TEXT,
-  state_params TEXT[],
-  active BOOL default 'true'
+CREATE TABLE keyword (
+  id SERIAL PRIMARY KEY,
+  keyword TEXT UNIQUE
 );
 
-CREATE TABLE userschema (
-  user_id INT PRIMARY KEY,
+CREATE TABLE photokey (
+  photo_id INT REFERENCES photo(id),
+  keyword_id INT REFERENCES keyword(id),
+  constraint id PRIMARY KEY (photo_id, keyword_id)
+);
+
+CREATE TABLE itemkey (
+  item_id INT REFERENCES item(id),
+  keyword_id INT REFERENCES keyword(id),
+  constraint itemkey_id PRIMARY KEY (item_id, keyword_id)
+);
+
+CREATE TABLE itemphoto(
+  item_id INT REFERENCES item(id),
+  photo_id INT REFERENCES photo(id),
+  constraint itemphoto_id PRIMARY KEY (item_id, photo_id)
+);
+
+CREATE TABLE usertable (
+  id SERIAL PRIMARY KEY,
   name TEXT,
-  email  TEXT,
+  email TEXT UNIQUE,
   role TEXT default 'user',
-  hashed_password TEXT,
-  provider TEXT,
-  salt TEXT,
-  facebook TEXT[],
-  twitter TEXT[],
-  google TEXT[],
-  github TEXT[],
-  favorites INT REFERENCES thingschema (page_id)
+  hashed_password TEXT
 );
 
-CREATE TABLE userfavorites (
-  user_id int references userschema (user_id),
-  page_id int references thingschema(page_id),
-  constraint id PRIMARY KEY (user_id, page_id)
+CREATE TABLE userfavorite (
+  id SERIAL PRIMARY KEY,
+  user_id INT REFERENCES usertable (id),
+  item_id INT REFERENCES item (id),
+  constraint userfavorite_id PRIMARY KEY (user_id, item_id)
 );
 
